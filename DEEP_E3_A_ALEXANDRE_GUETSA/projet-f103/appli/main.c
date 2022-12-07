@@ -48,6 +48,8 @@ int main(void)
 
 	//Initialisation du port de la led Verte (carte Nucleo)
 	BSP_GPIO_PinCfg(LED_GREEN_GPIO, LED_GREEN_PIN, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
+	BSP_GPIO_PinCfg(GPIOA, GPIO_PIN_6, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
+	BSP_GPIO_PinCfg(GPIOA, GPIO_PIN_7, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
 
 	//Initialisation du port du bouton bleu (carte Nucleo)
 	BSP_GPIO_PinCfg(BLUE_BUTTON_GPIO, BLUE_BUTTON_PIN, GPIO_MODE_INPUT,GPIO_PULLUP,GPIO_SPEED_FREQ_HIGH);
@@ -59,15 +61,12 @@ int main(void)
 
 	while(1)	//boucle de tâche de fond
 	{
-		printf("Bonjour");
 		if(!t)
 		{
-			t = 10000;
+			t = 1000;
 			HAL_GPIO_TogglePin(LED_GREEN_GPIO, LED_GREEN_PIN);
-		}
-		else
-		{
-			t-=1;
+			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
+			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
 		}
 	}
 }

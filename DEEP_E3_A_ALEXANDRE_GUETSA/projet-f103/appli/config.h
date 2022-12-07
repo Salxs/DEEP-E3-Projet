@@ -27,7 +27,7 @@
 	#define BLUE_BUTTON_GPIO	GPIOC
 	#define BLUE_BUTTON_PIN 	GPIO_PIN_13
 	#if BLUEPILL
-		#error "Vous ne pouvez pas dï¿½finir ï¿½ la fois NUCLEO et BLUEPILL !"
+		#error "Vous ne pouvez pas définir à la fois NUCLEO et BLUEPILL !"
 	#endif
 #endif
 #if BLUEPILL
@@ -77,8 +77,8 @@
 	#define USE_AN3			0	//Broche correspondante : PA3	//Sur la Nucleo, cette broche n'est pas cï¿½blï¿½e !
 	#define USE_AN4			0	//Broche correspondante : PA4
 	#define USE_AN5			0	//Broche correspondante : PA5
-	#define USE_AN6			0	//Broche correspondante : PA6
-	#define USE_AN7			0	//Broche correspondante : PA7
+	#define USE_AN6			1	//Broche correspondante : PA6
+	#define USE_AN7			1	//Broche correspondante : PA7
 	#define USE_AN8			0	//Broche correspondante : PB0
 	#define USE_AN9			0	//Broche correspondante : PB1
 	#define USE_AN10		0	//Broche correspondante : PC0	//Sur la Bluepill, cette broche n'est pas cï¿½blï¿½e !

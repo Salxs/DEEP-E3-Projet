@@ -1,4 +1,4 @@
-17:04:07 **** Incremental Build of configuration Debug for project projet-f103 ****
+16:14:42 **** Incremental Build of configuration Debug for project projet-f103 ****
 make -j4 all 
 Building file: ../appli/main.c
 Invoking: MCU GCC Compiler
@@ -16,8 +16,8 @@ Generating binary and Printing size information:
 arm-none-eabi-objcopy -O binary "projet-f103.elf" "projet-f103.bin"
 arm-none-eabi-size "projet-f103.elf"
    text	   data	    bss	    dec	    hex	filename
-  47672	   2508	   3472	  53652	   d194	projet-f103.elf
+  47712	   2508	   3472	  53692	   d1bc	projet-f103.elf
  
 
-17:04:14 Build Finished (took 6s.880ms)
+16:14:48 Build Finished (took 5s.283ms)
 

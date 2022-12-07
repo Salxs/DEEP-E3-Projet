@@ -55,15 +55,23 @@ int main(void)
 	//On ajoute la fonction process_ms à la liste des fonctions appelées automatiquement chaque ms par la routine d'interruption du périphérique SYSTICK
 	Systick_add_callback_function(&process_ms);
 
+	//Initialisation des ports de la LED VERTE relié à la bluepill
+	BSP_GPIO_Pincfg(LED_GREEN_PROJET, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_MEDIUM);
 
+	//Initialisation des ports de la LED ROUGE relié à la bluepill
+	BSP_GPIO_Pincfg(LED_RED_PROJET, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_MEDIUM);
 
 	while(1)	//boucle de tâche de fond
 	{
 		if(!t)
 		{
 			t = 1000;
-			HAL_GPIO_TogglePin(LED_GREEN_GPIO, LED_GREEN_PIN);
+			HAL_GPIO_TogglePin(LED_GREEN_PROJET_GPIO, LED_GREEN_PROJET);
+			HAL_GPIO_TogglePin(LED_RED_PROJET_GPIO, LED_RED_PROJET);
 		}
-
+		else
+		{
+			t-=1;
+		}
 	}
 }
