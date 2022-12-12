@@ -1,0 +1,51 @@
+Liste des composants nécessaires à la réalisation du projet.
+
+Carte Bluepill (ESEO)
+Lecteur NFC X-NUCLEO-NFC03A1 (ESEO)
+Module Bluetooth HC-05 (ESEO)
+LED ROUGE(ESEO) + résistance 1kOhm
+LED VERT(ESEO) + résistance 1kOhm
+Ultimate GPS (adafruit)
+Gache électrique (ESEO ?)(MOSFET >2A)
+
+Commentaires des profs :
+
+Attention, il faut prévoir le montage nécessaire au contrôle du cadenas.
+Est-ce bien d'un cadenas de vélo dont il s'agit ?
+Si oui, quel modèle du commerce comptez-vous utiliser ? Décathlon ?
+Quels sont les niveaux de tension et courant nécessaires pour le piloter ? ... doc ou essais sur alim labo à faire.
+A priori, il faut que vous prévoyiez d'ulitiser le montage à MOSFET pour courant supérieur à 2A (cf. en bas à droite du schéma ALTIUM qui vous est donné)
+
+
+Mes Idées
+
+Utilisé un électroaimants (PB trop proche d'une simple serrure électronique)
+un moteur qui ferait soulever la hanse pour permettre le déverrouillage (PB avec le verrrouillage + PB de place)
+Gache électrique.
+
+Ordre de réalisation :
+
+LED Rouge + 1 kOhm 
+	broche : PA6 signal haut et bas				Fonctionnel
+LED Vert + 1 kOhm
+	broche : PA7 signal haut et bas				Fonctionnel
+Module Bluetooth HC-O5:
+	broche : PA2_TX va sur le RX du module			
+		 PA3_RX va sur le TX du module			
+		 GND et 5V
+Lecteur NFC X-NUCLEO-NFC03A1
+	broche : PB3_SPI_SCK va sur SPI_SCK NFC (CN5-6)			
+		 PB4_SPI-MISO va sur SPI_MISO NFC (CN5-5)		
+		 PB5_SPI_MOSI va sur SPI_MOSI NFC (CN5-4)		
+		 PB6 SPI va sur SPI_CS NFC (CN5-3)			
+		 PA8_INTERFACE_PIN va sur Interface Pin NFC (CN5-2)
+		 PA9_IRQIN va sur UARTTX_IRQIN (CN5-1)
+		 PA10_IRQOUT va sur UART_RX_IRQOUT (CN9-2)
+		 2 3V3 et 2 GND
+Module GPS utlimate ADAFRUIT
+	broche : PB10_U1TX_GPS sur le RX du GPS	
+		 PB11_U1RX_GPS sur le TX du GPS	
+Gachette Electrique : 
+	broche : PB15_NMOS21 sur la grille du MOSFET
+		 Entrée 12V 		
+ 
