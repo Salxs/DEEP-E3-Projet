@@ -12,6 +12,7 @@
 #include "stm32f1_gpio.h"
 #include "macro_types.h"
 #include "systick.h"
+#include <HC05.h>
 
 void writeLED(bool_e b)
 {
@@ -48,6 +49,8 @@ int main(void)
 
 	//Initialisation du port de la led Verte (carte Nucleo)
 	BSP_GPIO_PinCfg(LED_GREEN_GPIO, LED_GREEN_PIN, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
+	BSP_GPIO_PinCfg(GPIOA, GPIO_PIN_6, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
+	BSP_GPIO_PinCfg(GPIOA, GPIO_PIN_7, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
 
 	//Initialisation du port du bouton bleu (carte Nucleo)
 	BSP_GPIO_PinCfg(BLUE_BUTTON_GPIO, BLUE_BUTTON_PIN, GPIO_MODE_INPUT,GPIO_PULLUP,GPIO_SPEED_FREQ_HIGH);
@@ -55,23 +58,20 @@ int main(void)
 	//On ajoute la fonction process_ms à la liste des fonctions appelées automatiquement chaque ms par la routine d'interruption du périphérique SYSTICK
 	Systick_add_callback_function(&process_ms);
 
-	//Initialisation des ports de la LED VERTE relié à la bluepill
-	BSP_GPIO_Pincfg(LED_GREEN_PROJET, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_MEDIUM);
+	//Initialisation du module Bluetooth
+	HC05_Init();
 
-	//Initialisation des ports de la LED ROUGE relié à la bluepill
-	BSP_GPIO_Pincfg(LED_RED_Projet, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_MEDIUM);
+
 
 	while(1)	//boucle de tâche de fond
 	{
-		printf("Bonjour");
 		if(!t)
 		{
-			t = 10000;
-			HAL_GPIO_TogglePin(LED_GREEN_GPIO, LED_GREEN_PIN);
-		}
-		else
-		{
-			t-=1;
+			t = 1000;
+			HC05_Test();
+			//HAL_GPIO_TogglePin(LED_GREEN_GPIO, LED_GREEN_PIN);
+			//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
+			//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
 		}
 	}
 }

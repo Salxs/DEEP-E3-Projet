@@ -8,6 +8,7 @@
 #ifndef CONFIG_H_
 #define CONFIG_H_
 #include "stm32f1xx_hal.h"
+#include "HC05.h"
 
 //Choix de la cible utilisï¿½e.
 #define NUCLEO	0
@@ -27,7 +28,7 @@
 	#define BLUE_BUTTON_GPIO	GPIOC
 	#define BLUE_BUTTON_PIN 	GPIO_PIN_13
 	#if BLUEPILL
-		#error "Vous ne pouvez pas dï¿½finir ï¿½ la fois NUCLEO et BLUEPILL !"
+		#error "Vous ne pouvez pas définir à la fois NUCLEO et BLUEPILL !"
 	#endif
 #endif
 #if BLUEPILL
@@ -35,8 +36,6 @@
 	#define LED_GREEN_PIN		GPIO_PIN_13
 	#define BLUE_BUTTON_GPIO	GPIOA
 	#define BLUE_BUTTON_PIN 	GPIO_PIN_15		//Pas de bouton sur la bluepill, choisissez le port souhaitï¿½ si vous en reliez un.
-	#define LED_GREEN_PROJET	GPIO_PIN_A7		//Définition de la broche PA7 pour la LED verte
-	#define LED_RED_Projet		GPIO_PIN_A6		//Définition de la broche PA6 pour la LED rouge
 #endif
 
 //Choisir les broches pour l'UART1, parmi ces deux possibilitï¿½s :

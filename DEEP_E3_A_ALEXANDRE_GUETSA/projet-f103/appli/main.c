@@ -13,6 +13,7 @@
 #include "macro_types.h"
 #include "systick.h"
 
+
 void writeLED(bool_e b)
 {
 	HAL_GPIO_WritePin(LED_GREEN_GPIO, LED_GREEN_PIN, b);
@@ -57,6 +58,9 @@ int main(void)
 	//On ajoute la fonction process_ms à la liste des fonctions appelées automatiquement chaque ms par la routine d'interruption du périphérique SYSTICK
 	Systick_add_callback_function(&process_ms);
 
+	//Initialisation du module Bluetooth
+	HC05_Init();
+
 
 
 	while(1)	//boucle de tâche de fond
@@ -64,6 +68,7 @@ int main(void)
 		if(!t)
 		{
 			t = 1000;
+			HC05_Test();
 			HAL_GPIO_TogglePin(LED_GREEN_GPIO, LED_GREEN_PIN);
 			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
 			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);

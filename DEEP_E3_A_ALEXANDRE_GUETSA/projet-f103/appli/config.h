@@ -9,6 +9,7 @@
 #define CONFIG_H_
 #include "stm32f1xx_hal.h"
 
+
 //Choix de la cible utilis�e.
 #define NUCLEO	0
 #define BLUEPILL 1
@@ -73,8 +74,8 @@
 	//2 entr�es analogiques doivent �tre activ�es minimum. (Vref est un choix possible si vous utilisez une seule entr�e)
 	#define USE_AN0			1	//Broche correspondante : PA0
 	#define USE_AN1			1	//Broche correspondante : PA1
-	#define USE_AN2			0	//Broche correspondante : PA2	//Sur la Nucleo, cette broche n'est pas c�bl�e !
-	#define USE_AN3			0	//Broche correspondante : PA3	//Sur la Nucleo, cette broche n'est pas c�bl�e !
+	#define USE_AN2			1	//Broche correspondante : PA2	//Sur la Nucleo, cette broche n'est pas c�bl�e !
+	#define USE_AN3			2	//Broche correspondante : PA3	//Sur la Nucleo, cette broche n'est pas c�bl�e !
 	#define USE_AN4			0	//Broche correspondante : PA4
 	#define USE_AN5			0	//Broche correspondante : PA5
 	#define USE_AN6			1	//Broche correspondante : PA6
@@ -133,7 +134,7 @@
 #define USE_RTC					0
 #define USE_PWM					0
 #define USE_ESP8266				0//Module Wifi
-#define USE_NFC03A1				0
+#define USE_NFC03A1				1
 #define USE_EPAPER				0
 #define	USE_GPS					0
 #define USE_HCSR04				0
