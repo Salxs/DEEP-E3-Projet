@@ -8,6 +8,7 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="SYS_set_std_usart"/>
 			<item value="pin"/>
 			<item value="use an7"/>
 			<item value="use"/>

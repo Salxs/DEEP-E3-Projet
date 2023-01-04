@@ -25,6 +25,7 @@ bool_e readButton(void)
 }
 
 static volatile uint32_t t = 0;
+static char message;
 void process_ms(void)
 {
 	if(t)
@@ -60,18 +61,22 @@ int main(void)
 
 	//Initialisation du module Bluetooth
 	HC05_Init();
+	printf("Bonjour");
 
+	NFC03A1_demo();
 
 
 	while(1)	//boucle de tâche de fond
 	{
-		if(!t)
-		{
-			t = 1000;
-			HC05_Test();
-			//HAL_GPIO_TogglePin(LED_GREEN_GPIO, LED_GREEN_PIN);
-			//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
-			//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
-		}
+
+		//if(!t)
+		//{
+			//t = 1000;
+
+			//HC05_Test();
+			HAL_GPIO_TogglePin(LED_GREEN_GPIO, LED_GREEN_PIN);
+			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
+			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
+		//}
 	}
 }

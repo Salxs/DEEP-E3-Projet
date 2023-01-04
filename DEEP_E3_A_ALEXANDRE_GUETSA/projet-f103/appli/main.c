@@ -25,6 +25,7 @@ bool_e readButton(void)
 }
 
 static volatile uint32_t t = 0;
+//static char message;
 void process_ms(void)
 {
 	if(t)
@@ -40,9 +41,10 @@ int main(void)
 
 
 	//Initialisation de l'UART2 à la vitesse de 115200 bauds/secondes (92kbits/s) PA2 : Tx  | PA3 : Rx.
-		//Attention, les pins PA2 et PA3 ne sont pas reliées jusqu'au connecteur de la Nucleo.
-		//Ces broches sont redirigées vers la sonde de débogage, la liaison UART étant ensuite encapsulée sur l'USB vers le PC de développement.
+	//Attention, les pins PA2 et PA3 ne sont pas reliées jusqu'au connecteur de la Nucleo.
+	//Ces broches sont redirigées vers la sonde de débogage, la liaison UART étant ensuite encapsulée sur l'USB vers le PC de développement.
 	UART_init(UART2_ID,115200);
+
 
 	//"Indique que les printf sortent vers le périphérique UART2."
 	SYS_set_std_usart(UART2_ID, UART2_ID, UART2_ID);
@@ -59,19 +61,23 @@ int main(void)
 	Systick_add_callback_function(&process_ms);
 
 	//Initialisation du module Bluetooth
-	HC05_Init();
+	//HC05_Init();
+	printf("Bonjour");
 
+	NFC03A1_demo();
 
 
 	while(1)	//boucle de tâche de fond
 	{
-		if(!t)
-		{
-			t = 1000;
-			HC05_Test();
+
+		//if(!t)
+		//{
+			//t = 1000;
+
+			//HC05_Test();
 			HAL_GPIO_TogglePin(LED_GREEN_GPIO, LED_GREEN_PIN);
 			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
 			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
-		}
+		//}
 	}
 }

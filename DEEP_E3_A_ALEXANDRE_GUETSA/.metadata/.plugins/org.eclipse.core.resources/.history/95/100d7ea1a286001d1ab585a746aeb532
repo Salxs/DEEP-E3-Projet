@@ -12,7 +12,7 @@
 #include "stm32f1_gpio.h"
 #include "macro_types.h"
 #include "systick.h"
-#include <HC05.h>
+
 
 void writeLED(bool_e b)
 {
@@ -63,12 +63,15 @@ int main(void)
 
 
 
+
+
 	while(1)	//boucle de tâche de fond
 	{
 		if(!t)
 		{
 			t = 1000;
-			HC05_Test();
+			NFC03A1_demo();
+			//HC05_Test();
 			//HAL_GPIO_TogglePin(LED_GREEN_GPIO, LED_GREEN_PIN);
 			//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
 			//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);

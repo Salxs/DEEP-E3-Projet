@@ -51,8 +51,8 @@
 //#define UART3_ON_PD8_PD9
 
 //Choisir les broches pour le SPI1, parmi ces deux possibilit�s :
-#define SPI1_ON_PA5_PA6_PA7		1
-#define SPI1_ON_PB3_PB4_PB5		0
+#define SPI1_ON_PA5_PA6_PA7		0
+#define SPI1_ON_PB3_PB4_PB5		1
 
 //_______________________________________________________
 
@@ -75,7 +75,7 @@
 	#define USE_AN0			1	//Broche correspondante : PA0
 	#define USE_AN1			1	//Broche correspondante : PA1
 	#define USE_AN2			1	//Broche correspondante : PA2	//Sur la Nucleo, cette broche n'est pas c�bl�e !
-	#define USE_AN3			2	//Broche correspondante : PA3	//Sur la Nucleo, cette broche n'est pas c�bl�e !
+	#define USE_AN3			1	//Broche correspondante : PA3	//Sur la Nucleo, cette broche n'est pas c�bl�e !
 	#define USE_AN4			0	//Broche correspondante : PA4
 	#define USE_AN5			0	//Broche correspondante : PA5
 	#define USE_AN6			1	//Broche correspondante : PA6
