@@ -44,10 +44,10 @@ void GPS_DEMO(gps_datas_t *gps_datas)
 {
 	uint8_t c;
 
-	while(UART_data_ready(UART2_ID))
+	while(UART_data_ready(UART3_ID))
 	{
 		//on récupère chaque octet reçu
-		c = UART_get_next_byte(UART2_ID);
+		c = UART_get_next_byte(UART3_ID);
 
 		//on le transmet au parser
 		if(GPS_process_rx(c, gps_datas) == TRAME_GPRMC)

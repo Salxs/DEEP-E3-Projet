@@ -12,7 +12,11 @@
 #include "stm32f1_gpio.h"
 #include "macro_types.h"
 #include "systick.h"
+#include "GPS/GPS.h"
 
+
+
+gps_datas_t *gps_datas;
 
 void writeLED(bool_e b)
 {
@@ -44,6 +48,7 @@ int main(void)
 	//Attention, les pins PA2 et PA3 ne sont pas reliées jusqu'au connecteur de la Nucleo.
 	//Ces broches sont redirigées vers la sonde de débogage, la liaison UART étant ensuite encapsulée sur l'USB vers le PC de développement.
 	UART_init(UART2_ID,115200);
+	UART_init(UART3_ID, 9600);
 
 
 	//"Indique que les printf sortent vers le périphérique UART2."
@@ -62,10 +67,10 @@ int main(void)
 
 	//Initialisation du module Bluetooth
 	//HC05_Init();
-	printf("Bonjour");
 
-	NFC03A1_demo();
 
+
+	GPS_DEMO(*gps_datas);
 
 	while(1)	//boucle de tâche de fond
 	{
@@ -73,11 +78,10 @@ int main(void)
 		//if(!t)
 		//{
 			//t = 1000;
-
 			//HC05_Test();
-			HAL_GPIO_TogglePin(LED_GREEN_GPIO, LED_GREEN_PIN);
-			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
-			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
+			//HAL_GPIO_TogglePin(LED_GREEN_GPIO, LED_GREEN_PIN);
+			//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
+			//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
 		//}
 	}
 }

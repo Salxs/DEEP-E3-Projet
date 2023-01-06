@@ -42,7 +42,11 @@ lib/bsp/GPS/GPS.o: ../lib/bsp/GPS/GPS.c \
  C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet\ Electronique\ embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/hal/inc/stm32f1xx_hal_pcd.h \
  C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet\ Electronique\ embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/hal/inc/stm32f1xx_ll_usb.h \
  C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet\ Electronique\ embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/hal/inc/stm32f1xx_hal_pcd_ex.h \
- C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet\ Electronique\ embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/hal/inc/stm32f1xx_hal_hcd.h
+ C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet\ Electronique\ embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/hal/inc/stm32f1xx_hal_hcd.h \
+ ../lib/bsp/GPS/GPS.h \
+ C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet\ Electronique\ embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/macro_types.h \
+ C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet\ Electronique\ embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/stm32f1_uart.h \
+ C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet\ Electronique\ embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/macro_types.h
 
 C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet\ Electronique\ embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/appli/config.h:
 
@@ -131,3 +135,11 @@ C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet\ Electronique\ 
 C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet\ Electronique\ embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/hal/inc/stm32f1xx_hal_pcd_ex.h:
 
 C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet\ Electronique\ embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/hal/inc/stm32f1xx_hal_hcd.h:
+
+../lib/bsp/GPS/GPS.h:
+
+C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet\ Electronique\ embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/macro_types.h:
+
+C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet\ Electronique\ embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/stm32f1_uart.h:
+
+C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet\ Electronique\ embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/macro_types.h:

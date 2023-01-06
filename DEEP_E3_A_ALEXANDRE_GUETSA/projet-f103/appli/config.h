@@ -10,6 +10,8 @@
 #include "stm32f1xx_hal.h"
 
 
+
+
 //Choix de la cible utilis�e.
 #define NUCLEO	0
 #define BLUEPILL 1
@@ -136,7 +138,7 @@
 #define USE_ESP8266				0//Module Wifi
 #define USE_NFC03A1				1
 #define USE_EPAPER				0
-#define	USE_GPS					0
+#define	USE_GPS					1
 #define USE_HCSR04				0
 #define USE_HX711				0
 #define USE_DAC_MCP4921			0

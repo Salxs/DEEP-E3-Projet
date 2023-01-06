@@ -4,12 +4,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../appli/cadena.c \
 ../appli/main.c 
 
 OBJS += \
+./appli/cadena.o \
 ./appli/main.o 
 
 C_DEPS += \
+./appli/cadena.d \
 ./appli/main.d 
 
 
