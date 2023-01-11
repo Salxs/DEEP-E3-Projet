@@ -10,6 +10,7 @@
 #include "macro_types.h"
 #include "systick.h"
 #include "NFC03A1/nfc03a1.h"
+#include "GPS/GPS.h"
 
 #define BUFFER_SIZE 128
 
@@ -36,6 +37,8 @@ void CADENA_state_machine(void)
 	uint8_t tag;
 	ISO14443A_CARD card;
 	uint8_t t = 20;
+	gps_datas_t coord;
+	nmea_frame_e result;
 
 
 	switch(etat_cadena){
@@ -52,12 +55,14 @@ void CADENA_state_machine(void)
 			//Initialisation du module NFC
 			NFC03A1_Init(PCD);
 			etat_cadena = WAIT_CONNEXION;
+			printf("INIT");
 			break;
 
 		case WAIT_CONNEXION :
 			//Si on détecte une connexion on passe dans l'état connexion
 			if(message == "connecter")
 			{
+				printf("Connecté");
 				message = "";
 				etat_cadena = CONNEXION;
 			}
@@ -71,41 +76,56 @@ void CADENA_state_machine(void)
 			break;
 
 		case CONNEXION :
+			printf("Connexion");
 			//Si on reçoit le message "verrouille" on verouille le cadena
 			if(message == "verrouille")
 			{
 				//Action sur la pin responsable de la gache
 				message = "";
-				delay(2000);
 			}
 			//Si on reçoit le message "badge" on passe dans l'etat BADGE
 			else if(message == "badge")
 			{
+				printf(message);
 				etat_cadena = BADGE;
 				message = "";
-				delay(2000);
 			}
 			//Si on reçoit le message "gps" on envoie les coordonnées GPS à l'application
 			else if(message == "gps")
 			{
+				//On se met à réceptionner les trames qui arrivent dans le GPS
+				while(UART_data_ready(UART3_ID))
+				{
+					// On essaie de détecter la fin de la trame
+					if((result == TRAME_GPRMC) || (result == TRAME_GPGGA))
+					{
+						//on envoie les coordonées GPS sur l'application
+						printf("Le cadena se situe aux coordonnées suivantes : %lf, %lf\n", coord.latitude_deg, coord.longitude_deg);
+						break;
+					}
+					else
+					{
+						//
+						result = GPS_process_rx(UART_get_next_byte(UART3_ID), &coord);
+					}
+				}
 
+			result = NO_TRAME_RECEIVED;
 			}
 			//On vérifie si la connexion Bluetooth fonctionne toujours, si non on repasse dans l'état WAIT_CONNEXION
-			if(message == "déconnexion")
+			if(message == "deconnexion")
 			{
 				message = "";
 				etat_cadena = WAIT_CONNEXION;
-				delay(1000);
 			}
 			break;
 
 		case BADGE :
 			//On laisse 20 secondes à l'utilisateur pour placer un badge valide sur le capteur NFC
 
-			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
-			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
 			while(t > 0)
 			{
+				printf("etat badge");
 				//On enregistre le badge de sorte à ce qu'il puisse déverrouiller le cadena.
 				//Si plus de deux badges sont enregistrés on supprime le plus ancien (à voir)
 				//Envoie d'un message à l'application pour confirmer l'enregistrement du badge
@@ -123,6 +143,8 @@ void CADENA_state_machine(void)
 				}
 				else
 				{
+					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
+					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
 					delay(1000);
 					t--;
 				}
@@ -135,7 +157,7 @@ void CADENA_state_machine(void)
 			//On vérifie si le badge est autorisé à déverrouiller le cadena
 			NFC03A1_get_ISO14443A_infos(&card);
 
-			if((badge_1 == card) || (badge_2 == card))
+			if((badge_1.UID == card.UID) || (badge_2.UID == card.UID))
 			{
 				//Si le badge est correct on déverrouille et on fait clignoter la LED verte
 				HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);

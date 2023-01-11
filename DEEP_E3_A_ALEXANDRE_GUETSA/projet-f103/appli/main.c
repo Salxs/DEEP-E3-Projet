@@ -15,7 +15,6 @@
 #include "GPS/GPS.h"
 
 
-
 gps_datas_t gps_data;
 
 void writeLED(bool_e b)
@@ -51,7 +50,7 @@ int main(void)
 
 
 	//"Indique que les printf sortent vers le périphérique UART2."
-	SYS_set_std_usart(UART2_ID, UART2_ID, UART2_ID);
+	SYS_set_std_usart(UART3_ID, UART3_ID, UART3_ID);
 
 
 	//Initialisation du port du bouton bleu (carte Nucleo)
@@ -62,7 +61,6 @@ int main(void)
 
 	//Initialisation du module Bluetooth
 	//HC05_Init();
-
 
 
 	while(1)	//boucle de tâche de fond
