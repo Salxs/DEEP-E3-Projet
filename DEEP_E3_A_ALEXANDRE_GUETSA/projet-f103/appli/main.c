@@ -16,7 +16,7 @@
 
 
 
-gps_datas_t *gps_datas;
+gps_datas_t gps_data;
 
 void writeLED(bool_e b)
 {
@@ -47,17 +47,12 @@ int main(void)
 	//Initialisation de l'UART2 à la vitesse de 115200 bauds/secondes (92kbits/s) PA2 : Tx  | PA3 : Rx.
 	//Attention, les pins PA2 et PA3 ne sont pas reliées jusqu'au connecteur de la Nucleo.
 	//Ces broches sont redirigées vers la sonde de débogage, la liaison UART étant ensuite encapsulée sur l'USB vers le PC de développement.
-	UART_init(UART2_ID,115200);
-	UART_init(UART3_ID, 9600);
+
 
 
 	//"Indique que les printf sortent vers le périphérique UART2."
 	SYS_set_std_usart(UART2_ID, UART2_ID, UART2_ID);
 
-	//Initialisation du port de la led Verte (carte Nucleo)
-	BSP_GPIO_PinCfg(LED_GREEN_GPIO, LED_GREEN_PIN, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
-	BSP_GPIO_PinCfg(GPIOA, GPIO_PIN_6, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
-	BSP_GPIO_PinCfg(GPIOA, GPIO_PIN_7, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
 
 	//Initialisation du port du bouton bleu (carte Nucleo)
 	BSP_GPIO_PinCfg(BLUE_BUTTON_GPIO, BLUE_BUTTON_PIN, GPIO_MODE_INPUT,GPIO_PULLUP,GPIO_SPEED_FREQ_HIGH);
@@ -70,18 +65,9 @@ int main(void)
 
 
 
-	GPS_DEMO(*gps_datas);
-
 	while(1)	//boucle de tâche de fond
 	{
-
-		//if(!t)
-		//{
-			//t = 1000;
-			//HC05_Test();
-			//HAL_GPIO_TogglePin(LED_GREEN_GPIO, LED_GREEN_PIN);
-			//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
-			//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
-		//}
+		//Fonction contenant la machine à état du système
+		CADENA_state_machine();
 	}
 }

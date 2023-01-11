@@ -94,7 +94,8 @@ void NFC03A1_demo(void)
 		tag = ConfigManager_TagHunting(TRACK_ALL);
 		switch(tag)
 		{
-			case TRACK_NFCTYPE4A:{
+			case TRACK_NFCTYPE4A:
+			{
 				ISO14443A_CARD infos;
 				NFC03A1_get_ISO14443A_infos(&infos);
 				uint8_t i;

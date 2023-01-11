@@ -9,8 +9,15 @@
 #include "config.h"
 #include "macro_types.h"
 #include "systick.h"
+#include "NFC03A1/nfc03a1.h"
 
-/*void CADENA_state_machine(void)
+#define BUFFER_SIZE 128
+
+static ISO14443A_CARD badge_1;
+static ISO14443A_CARD badge_2;
+
+
+void CADENA_state_machine(void)
 {
 	//réalisation de la machine à état du projet
 
@@ -24,13 +31,19 @@
 	}state_e;
 
 	static state_e etat_cadena = INIT;
+	char message = CADENA_recuperation_message;
+	uint8_t numero_badge_ancien = 1;
+	uint8_t tag;
+	ISO14443A_CARD card;
+	uint8_t t = 20;
+
 
 	switch(etat_cadena){
 
 		case INIT :
 			//Inititalisation des liaisons UART
-			UART_init(UART2_ID,115200);
-			UART_init(UART3_ID, 9600);
+			UART_init(UART2_ID,9600);
+			UART_init(UART3_ID,9600);
 			//Initialisation des ports GPIO pour les LEDs
 			BSP_GPIO_PinCfg(GPIOA, GPIO_PIN_6, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
 			BSP_GPIO_PinCfg(GPIOA, GPIO_PIN_7, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
@@ -43,12 +56,15 @@
 
 		case WAIT_CONNEXION :
 			//Si on détecte une connexion on passe dans l'état connexion
-			if()
+			if(message == "connecter")
 			{
-
+				message = "";
+				etat_cadena = CONNEXION;
 			}
 			//Si on détecte un badge NFC on déverouille le cadena
-			else if()
+			tag = ConfigManager_TagHunting(TRACK_ALL);
+
+			if(tag == TRACK_NFCTYPE4A)
 			{
 				etat_cadena = DEVERROUILLAGE;
 			}
@@ -56,51 +72,74 @@
 
 		case CONNEXION :
 			//Si on reçoit le message "verrouille" on verouille le cadena
-			if()
+			if(message == "verrouille")
 			{
-
+				//Action sur la pin responsable de la gache
+				message = "";
+				delay(2000);
 			}
 			//Si on reçoit le message "badge" on passe dans l'etat BADGE
-			else if()
+			else if(message == "badge")
 			{
 				etat_cadena = BADGE;
+				message = "";
+				delay(2000);
 			}
 			//Si on reçoit le message "gps" on envoie les coordonnées GPS à l'application
-			else if()
+			else if(message == "gps")
 			{
 
 			}
 			//On vérifie si la connexion Bluetooth fonctionne toujours, si non on repasse dans l'état WAIT_CONNEXION
-			if()
+			if(message == "déconnexion")
 			{
+				message = "";
 				etat_cadena = WAIT_CONNEXION;
+				delay(1000);
 			}
 			break;
 
 		case BADGE :
 			//On laisse 20 secondes à l'utilisateur pour placer un badge valide sur le capteur NFC
-			uint16_t time = 20000;
+
 			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
 			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
-			while(time > 0)
+			while(t > 0)
 			{
-				//Si un badge est détecté sur le capteur on enregistre celui-ci
-				if()
+				//On enregistre le badge de sorte à ce qu'il puisse déverrouiller le cadena.
+				//Si plus de deux badges sont enregistrés on supprime le plus ancien (à voir)
+				//Envoie d'un message à l'application pour confirmer l'enregistrement du badge
+				if(numero_badge_ancien == 1)
 				{
-					//On enregistre le badge de sorte à ce qu'il puisse déverrouiller le cadena.
-					//Si plus de deux badges sont enregistrés on supprime le plus ancien (à voir)
-					//Envoie d'un message à l'application pour confirmer l'enregistrement du badge
+					numero_badge_ancien = 2;
+					NFC03A1_get_ISO14443A_infos(&badge_1);
+					break;
+				}
+				else if(numero_badge_ancien == 2)
+				{
+					numero_badge_ancien = 1;
+					NFC03A1_get_ISO14443A_infos(&badge_2);
+					break;
+				}
+				else
+				{
+					delay(1000);
+					t--;
 				}
 			}
+
 			etat_cadena = CONNEXION;
 			break;
 
 		case DEVERROUILLAGE :
 			//On vérifie si le badge est autorisé à déverrouiller le cadena
-			if()
+			NFC03A1_get_ISO14443A_infos(&card);
+
+			if((badge_1 == card) || (badge_2 == card))
 			{
 				//Si le badge est correct on déverrouille et on fait clignoter la LED verte
 				HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
+				//Action sur la pin responsable de la gestion de la gache électrique
 			}
 			else
 			{
@@ -109,4 +148,21 @@
 			}
 			break;
 	}
-}*/
+
+}
+
+
+char CADENA_recuperation_message(void)
+{
+	//Définition de notre variable de récupération
+	char info = "";
+
+	//Tant que la liaison UART reçoit des informations on continue de les récupérer
+	while(UART_data_ready(UART2_ID))
+	{
+		//récupération des données de la liaison UART
+		info = info + UART_getc(UART2_ID);
+	}
+	return info;
+
+}
