@@ -108,7 +108,6 @@ void NFC03A1_demo(void)
 				break;
 		}
 	}
-
 }
 
 extern ISO14443A_CARD ISO14443A_Card;

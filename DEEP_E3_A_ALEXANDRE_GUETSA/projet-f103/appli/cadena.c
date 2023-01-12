@@ -32,7 +32,7 @@ void CADENA_state_machine(void)
 	}state_e;
 
 	static state_e etat_cadena = INIT;
-	char message = CADENA_recuperation_message;
+	char message = CADENA_recuperation_message();
 	uint8_t numero_badge_ancien = 1;
 	uint8_t tag;
 	ISO14443A_CARD card;
@@ -177,7 +177,7 @@ void CADENA_state_machine(void)
 char CADENA_recuperation_message(void)
 {
 	//Définition de notre variable de récupération
-	char info = "";
+	int info = 0;
 
 	//Tant que la liaison UART reçoit des informations on continue de les récupérer
 	while(UART_data_ready(UART2_ID))
@@ -185,6 +185,7 @@ char CADENA_recuperation_message(void)
 		//récupération des données de la liaison UART
 		info = info + UART_getc(UART2_ID);
 	}
-	return info;
+	char infoChar = info +"0";
+	return infoChar;
 
 }
