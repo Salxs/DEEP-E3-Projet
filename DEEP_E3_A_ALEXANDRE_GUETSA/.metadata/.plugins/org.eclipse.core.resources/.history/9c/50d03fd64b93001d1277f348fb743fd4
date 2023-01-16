@@ -61,12 +61,15 @@ int main(void)
 
 	//Initialisation du module Bluetooth
 	//HC05_Init();
+	BSP_GPIO_PinCfg(GPIOA, GPIO_PIN_6, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
+	BSP_GPIO_PinCfg(GPIOA, GPIO_PIN_7, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
 
 
 	while(1)	//boucle de tâche de fond
 	{
-
+		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
+		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
 		//Fonction contenant la machine à état du système
-		CADENA_state_machine();
+		//CADENA_state_machine();
 	}
 }

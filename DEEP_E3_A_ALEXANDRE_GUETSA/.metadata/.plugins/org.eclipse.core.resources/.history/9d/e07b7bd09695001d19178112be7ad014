@@ -47,8 +47,6 @@ void CADENA_state_machine(void)
 			//Inititalisation des liaisons UART
 			UART_init(UART2_ID,9600);
 			UART_init(UART3_ID,9600);
-			//On envoie les printf vers la sortie UART3
-			SYS_set_std_usart(UART3_ID, UART3_ID, UART3_ID);
 			//Initialisation des ports GPIO pour les LEDs
 			BSP_GPIO_PinCfg(GPIOA, GPIO_PIN_6, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
 			BSP_GPIO_PinCfg(GPIOA, GPIO_PIN_7, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);

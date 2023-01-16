@@ -65,7 +65,6 @@ int main(void)
 
 	while(1)	//boucle de tâche de fond
 	{
-
 		//Fonction contenant la machine à état du système
 		CADENA_state_machine();
 	}
