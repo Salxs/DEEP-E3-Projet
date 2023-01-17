@@ -1,195 +1,4 @@
-12:07:47 **** Incremental Build of configuration Debug for project projet-f103 ****
-make -j4 all 
-Building file: ../appli/cadena.c
-Invoking: MCU GCC Compiler
-C:\Users\Salxs\Documents\ESEO\Cours\Electronique_embarqué\Projet Electronique embarqué\STM32_Workspace\DEEP_E3_A_ALEXANDRE_GUETSA\projet-f103\Debug
-arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/middleware/MIDI" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/VL53L0X" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/MPU6050" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/Common" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/hts221" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/lis3mdl" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/lps22hb" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/lps25hb" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/lsm6ds0" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/lsm6ds3" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/tft_ili9341" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/tft_pcd8544" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/MCP23S17" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/hal/inc" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/Common" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/lcd2x16" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/MLX90614" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/MatrixKeyboard" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/MatrixLed" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/CMSIS/core" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/CMSIS/device" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/middleware/FatFs" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/middleware/FatFs/src" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/middleware/FatFs/src/drivers" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/appli"  -Og -g3 -Wall -Wextra -Wconversion -fmessage-length=0 -ffunction-sections -fdata-sections -c -MMD -MP -MF"appli/cadena.d" -MT"appli/cadena.o" -o "appli/cadena.o" "../appli/cadena.c"
-../appli/cadena.c: In function 'CADENA_state_machine':
-../appli/cadena.c:54:4: warning: implicit declaration of function 'BSP_GPIO_PinCfg'; did you mean 'IS_GPIO_PIN'? [-Wimplicit-function-declaration]
-    BSP_GPIO_PinCfg(GPIOA, GPIO_PIN_6, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
-    ^~~~~~~~~~~~~~~
-    IS_GPIO_PIN
-../appli/cadena.c:57:4: warning: implicit declaration of function 'HC05_Init'; did you mean 'HAL_Init'? [-Wimplicit-function-declaration]
-    HC05_Init();
-    ^~~~~~~~~
-    HAL_Init
-../appli/cadena.c:69:13: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
-     message = "";
-             ^
-../appli/cadena.c:79:8: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
-    tag = NULL;
-        ^
-../appli/cadena.c:85:15: warning: comparison between pointer and integer
-    if(message == "verrouille")
-               ^~
-../appli/cadena.c:85:15: warning: comparison with string literal results in unspecified behavior [-Waddress]
-../appli/cadena.c:88:13: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
-     message = "";
-             ^
-../appli/cadena.c:91:20: warning: comparison between pointer and integer
-    else if(message == "badge")
-                    ^~
-../appli/cadena.c:91:20: warning: comparison with string literal results in unspecified behavior [-Waddress]
-../appli/cadena.c:93:12: warning: passing argument 1 of 'printf' makes pointer from integer without a cast [-Wint-conversion]
-     printf(message);
-            ^~~~~~~
-In file included from C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/macro_types.h:10:0,
-                 from ../appli/cadena.c:10:
-d:\programme\logiciel\plugins\fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825\tools\compiler\arm-none-eabi\include\stdio.h:200:5: note: expected 'const char * restrict' but argument is of type 'char'
- int printf (const char *__restrict, ...)
-     ^~~~~~
-../appli/cadena.c:95:13: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
-     message = "";
-             ^
-../appli/cadena.c:98:20: warning: comparison between pointer and integer
-    else if(message == "gps")
-                    ^~
-../appli/cadena.c:98:20: warning: comparison with string literal results in unspecified behavior [-Waddress]
-../appli/cadena.c:122:13: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
-     message = "";
-             ^
-../appli/cadena.c: In function 'CADENA_recuperation_message':
-../appli/cadena.c:191:10: warning: passing argument 1 of 'printf' makes pointer from integer without a cast [-Wint-conversion]
-   printf(info);
-          ^~~~
-In file included from C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/macro_types.h:10:0,
-                 from ../appli/cadena.c:10:
-d:\programme\logiciel\plugins\fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825\tools\compiler\arm-none-eabi\include\stdio.h:200:5: note: expected 'const char * restrict' but argument is of type 'int'
- int printf (const char *__restrict, ...)
-     ^~~~~~
-../appli/cadena.c:193:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
-  char infoChar = info +"0";
-                  ^~~~
-../appli/cadena.c: In function 'CADENA_state_machine':
-../appli/cadena.c:73:8: warning: 'tagToFind' may be used uninitialized in this function [-Wmaybe-uninitialized]
-    tag = ConfigManager_TagHunting(tagToFind);
-    ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../appli/cadena.c:104:33: warning: 'result' may be used uninitialized in this function [-Wmaybe-uninitialized]
-      if((result == TRAME_GPRMC) || (result == TRAME_GPGGA))
-         ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
-Finished building: ../appli/cadena.c
- 
-Building target: projet-f103.elf
-Invoking: MCU GCC Linker
-arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -u_printf_float -specs=rdimon.specs -T"../lib/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "projet-f103.elf" @"objects.list"  -lc -lrdimon -lm
-Finished building target: projet-f103.elf
- 
-make --no-print-directory post-build
-Generating binary and Printing size information:
-arm-none-eabi-objcopy -O binary "projet-f103.elf" "projet-f103.bin"
-arm-none-eabi-size "projet-f103.elf"
-   text	   data	    bss	    dec	    hex	filename
-  67348	   2516	   4880	  74744	  123f8	projet-f103.elf
- 
-
-12:07:53 Build Finished (took 5s.730ms)
-
-12:07:58 **** Incremental Build of configuration Debug for project projet-f103 ****
-make -j4 all 
-make: Nothing to be done for 'all'.
-12:08:22 **** Incremental Build of configuration Debug for project projet-f103 ****
-make -j4 all 
-make: Nothing to be done for 'all'.
-12:10:10 **** Incremental Build of configuration Debug for project projet-f103 ****
-make -j4 all 
-make: Nothing to be done for 'all'.
-12:12:30 **** Incremental Build of configuration Debug for project projet-f103 ****
-make -j4 all 
-make: Nothing to be done for 'all'.
-12:18:41 **** Incremental Build of configuration Debug for project projet-f103 ****
-make -j4 all 
-Building file: ../appli/cadena.c
-Building file: ../appli/main.c
-Invoking: MCU GCC Compiler
-Invoking: MCU GCC Compiler
-C:\Users\Salxs\Documents\ESEO\Cours\Electronique_embarqué\Projet Electronique embarqué\STM32_Workspace\DEEP_E3_A_ALEXANDRE_GUETSA\projet-f103\Debug
-C:\Users\Salxs\Documents\ESEO\Cours\Electronique_embarqué\Projet Electronique embarqué\STM32_Workspace\DEEP_E3_A_ALEXANDRE_GUETSA\projet-f103\Debug
-arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/middleware/MIDI" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/VL53L0X" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/MPU6050" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/Common" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/hts221" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/lis3mdl" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/lps22hb" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/lps25hb" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/lsm6ds0" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/lsm6ds3" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/tft_ili9341" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/tft_pcd8544" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/MCP23S17" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/hal/inc" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/Common" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/lcd2x16" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/MLX90614" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/MatrixKeyboard" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/MatrixLed" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/CMSIS/core" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/CMSIS/device" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/middleware/FatFs" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/middleware/FatFs/src" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/middleware/FatFs/src/drivers" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/appli"  -Og -g3 -Wall -Wextra -Wconversion -fmessage-length=0 -ffunction-sections -fdata-sections -c -MMD -MP -MF"appli/cadena.d" -MT"appli/cadena.o" -o "appli/cadena.o" "../appli/cadena.c"
-arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/middleware/MIDI" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/VL53L0X" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/MPU6050" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/Common" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/hts221" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/lis3mdl" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/lps22hb" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/lps25hb" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/lsm6ds0" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/iks01a1/lsm6ds3" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/tft_ili9341" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/tft_pcd8544" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/MCP23S17" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/hal/inc" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/Common" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/lcd2x16" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/MLX90614" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/MatrixKeyboard" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/MatrixLed" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/CMSIS/core" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/CMSIS/device" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/middleware/FatFs" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/middleware/FatFs/src" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/middleware/FatFs/src/drivers" -I"C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/appli"  -Og -g3 -Wall -Wextra -Wconversion -fmessage-length=0 -ffunction-sections -fdata-sections -c -MMD -MP -MF"appli/main.d" -MT"appli/main.o" -o "appli/main.o" "../appli/main.c"
-../appli/cadena.c: In function 'CADENA_state_machine':
-../appli/cadena.c:54:4: warning: implicit declaration of function 'BSP_GPIO_PinCfg'; did you mean 'IS_GPIO_PIN'? [-Wimplicit-function-declaration]
-    BSP_GPIO_PinCfg(GPIOA, GPIO_PIN_6, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
-    ^~~~~~~~~~~~~~~
-    IS_GPIO_PIN
-../appli/main.c: In function 'main':
-../appli/main.c:62:3: warning: implicit declaration of function 'CADENA_state_machine' [-Wimplicit-function-declaration]
-   CADENA_state_machine();
-   ^~~~~~~~~~~~~~~~~~~~
-../appli/cadena.c:57:4: warning: implicit declaration of function 'HC05_Init'; did you mean 'HAL_Init'? [-Wimplicit-function-declaration]
-    HC05_Init();
-    ^~~~~~~~~
-    HAL_Init
-../appli/cadena.c:70:13: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
-     message = "";
-             ^
-../appli/cadena.c:81:9: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
-     tag = NULL;
-         ^
-../appli/cadena.c:88:15: warning: comparison between pointer and integer
-    if(message == "verrouille")
-               ^~
-../appli/cadena.c:88:15: warning: comparison with string literal results in unspecified behavior [-Waddress]
-../appli/cadena.c:91:13: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
-     message = "";
-             ^
-../appli/cadena.c:94:20: warning: comparison between pointer and integer
-    else if(message == "badge")
-                    ^~
-../appli/cadena.c:94:20: warning: comparison with string literal results in unspecified behavior [-Waddress]
-../appli/cadena.c:96:12: warning: passing argument 1 of 'printf' makes pointer from integer without a cast [-Wint-conversion]
-     printf(message);
-            ^~~~~~~
-In file included from C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/macro_types.h:10:0,
-                 from ../appli/cadena.c:10:
-d:\programme\logiciel\plugins\fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825\tools\compiler\arm-none-eabi\include\stdio.h:200:5: note: expected 'const char * restrict' but argument is of type 'char'
- int printf (const char *__restrict, ...)
-     ^~~~~~
-../appli/cadena.c:98:13: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
-     message = "";
-             ^
-../appli/cadena.c:101:20: warning: comparison between pointer and integer
-    else if(message == "gps")
-                    ^~
-../appli/cadena.c:101:20: warning: comparison with string literal results in unspecified behavior [-Waddress]
-../appli/cadena.c:125:13: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
-     message = "";
-             ^
-../appli/cadena.c: In function 'CADENA_recuperation_message':
-../appli/cadena.c:194:10: warning: passing argument 1 of 'printf' makes pointer from integer without a cast [-Wint-conversion]
-   printf(info);
-          ^~~~
-In file included from C:/Users/Salxs/Documents/ESEO/Cours/Electronique_embarqué/Projet Electronique embarqué/STM32_Workspace/DEEP_E3_A_ALEXANDRE_GUETSA/projet-f103/lib/bsp/macro_types.h:10:0,
-                 from ../appli/cadena.c:10:
-d:\programme\logiciel\plugins\fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825\tools\compiler\arm-none-eabi\include\stdio.h:200:5: note: expected 'const char * restrict' but argument is of type 'int'
- int printf (const char *__restrict, ...)
-     ^~~~~~
-../appli/cadena.c:196:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
-  char infoChar = info +"0";
-                  ^~~~
-../appli/cadena.c: In function 'CADENA_state_machine':
-../appli/cadena.c:76:9: warning: 'tagToFind' may be used uninitialized in this function [-Wmaybe-uninitialized]
-     tag = ConfigManager_TagHunting(tagToFind);
-     ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../appli/cadena.c:107:33: warning: 'result' may be used uninitialized in this function [-Wmaybe-uninitialized]
-      if((result == TRAME_GPRMC) || (result == TRAME_GPGGA))
-         ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
-Finished building: ../appli/cadena.c
- 
-Finished building: ../appli/main.c
- 
-Building target: projet-f103.elf
-Invoking: MCU GCC Linker
-arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -u_printf_float -specs=rdimon.specs -T"../lib/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "projet-f103.elf" @"objects.list"  -lc -lrdimon -lm
-Finished building target: projet-f103.elf
- 
-make --no-print-directory post-build
-Generating binary and Printing size information:
-arm-none-eabi-objcopy -O binary "projet-f103.elf" "projet-f103.bin"
-arm-none-eabi-size "projet-f103.elf"
-   text	   data	    bss	    dec	    hex	filename
-  67364	   2516	   4880	  74760	  12408	projet-f103.elf
- 
-12:38:10 **** Incremental Build of configuration Debug for project projet-f103 ****
+14:36:58 **** Incremental Build of configuration Debug for project projet-f103 ****
 make -j4 all 
 Building file: ../appli/cadena.c
 Invoking: MCU GCC Compiler
@@ -207,9 +16,6 @@ arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -DSTM32F1 -DNUCLEO_F1
 ../appli/cadena.c:70:13: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
      message = "";
              ^
-../appli/cadena.c:82:9: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
-     tag = NULL;
-         ^
 ../appli/cadena.c:89:15: warning: comparison between pointer and integer
     if(message == "verrouille")
                ^~
@@ -239,6 +45,9 @@ d:\programme\logiciel\plugins\fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201
 ../appli/cadena.c:126:13: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
      message = "";
              ^
+../appli/cadena.c:42:10: warning: unused variable 'tagToFind' [-Wunused-variable]
+  uint8_t tagToFind;
+          ^~~~~~~~~
 ../appli/cadena.c: In function 'CADENA_recuperation_message':
 ../appli/cadena.c:195:10: warning: passing argument 1 of 'printf' makes pointer from integer without a cast [-Wint-conversion]
    printf(info);
@@ -252,9 +61,6 @@ d:\programme\logiciel\plugins\fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201
   char infoChar = info +"0";
                   ^~~~
 ../appli/cadena.c: In function 'CADENA_state_machine':
-../appli/cadena.c:77:9: warning: 'tagToFind' may be used uninitialized in this function [-Wmaybe-uninitialized]
-     tag = ConfigManager_TagHunting(tagToFind);
-     ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../appli/cadena.c:108:33: warning: 'result' may be used uninitialized in this function [-Wmaybe-uninitialized]
       if((result == TRAME_GPRMC) || (result == TRAME_GPGGA))
          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -270,5 +76,14 @@ Generating binary and Printing size information:
 arm-none-eabi-objcopy -O binary "projet-f103.elf" "projet-f103.bin"
 arm-none-eabi-size "projet-f103.elf"
    text	   data	    bss	    dec	    hex	filename
-  67396	   2516	   4880	  74792	  12428	projet-f103.elf
+  67388	   2516	   4880	  74784	  12420	projet-f103.elf
  
+
+14:37:06 Build Finished (took 7s.251ms)
+
+14:37:11 **** Incremental Build of configuration Debug for project projet-f103 ****
+make -j4 all 
+make: Nothing to be done for 'all'.
+14:38:27 **** Incremental Build of configuration Debug for project projet-f103 ****
+make -j4 all 
+make: Nothing to be done for 'all'.

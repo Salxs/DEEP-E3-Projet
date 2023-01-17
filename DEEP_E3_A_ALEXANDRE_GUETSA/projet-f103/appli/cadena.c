@@ -34,7 +34,7 @@ void CADENA_state_machine(void)
 	static state_e etat_cadena = INIT;
 	char message = CADENA_recuperation_message();
 	uint8_t numero_badge_ancien = 1;
-	uint8_t tag;
+	//uint8_t tag;
 	ISO14443A_CARD card;
 	uint8_t t = 20;
 	gps_datas_t coord;
@@ -71,16 +71,14 @@ void CADENA_state_machine(void)
 				etat_cadena = CONNEXION;
 			}
 			//Si on détecte un badge NFC on déverouille le cadena
-			if(ISO14443A_IsPresent() == RESULTOK)
+
+			if(ConfigManager_TagHunting(tagToFind) == TRACK_NFCTYPE4A)
 			{
 				printf("Il y a quelque chose \n");
-				tag = ConfigManager_TagHunting(tagToFind);
-				if(tag == TRACK_NFCTYPE4A)
-				{
-					etat_cadena = DEVERROUILLAGE;
-				}
-				tag = NULL;
+				etat_cadena = DEVERROUILLAGE;
 			}
+
+
 			break;
 
 		case CONNEXION :
@@ -177,6 +175,9 @@ void CADENA_state_machine(void)
 				HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
 			}
 			break;
+
+		default :
+			break;
 	}
 
 }
@@ -198,3 +199,4 @@ char CADENA_recuperation_message(void)
 	return infoChar;
 
 }
+
