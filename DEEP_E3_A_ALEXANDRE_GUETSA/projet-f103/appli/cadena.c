@@ -39,6 +39,7 @@ void CADENA_state_machine(void)
 	uint8_t t = 20;
 	gps_datas_t coord;
 	nmea_frame_e result;
+	uint8_t tagToFind;
 
 
 	switch(etat_cadena){
@@ -46,7 +47,7 @@ void CADENA_state_machine(void)
 		case INIT :
 			//Inititalisation des liaisons UART
 			UART_init(UART2_ID,9600);
-			UART_init(UART3_ID,9600);
+			//UART_init(UART3_ID,9600);
 			//On envoie les printf vers la sortie UART3
 			SYS_set_std_usart(UART3_ID, UART3_ID, UART3_ID);
 			//Initialisation des ports GPIO pour les LEDs
@@ -61,6 +62,7 @@ void CADENA_state_machine(void)
 			break;
 
 		case WAIT_CONNEXION :
+			printf("Wait connexion \n");
 			//Si on détecte une connexion on passe dans l'état connexion
 			if(UART_data_ready(UART2_ID))
 			{
@@ -69,11 +71,15 @@ void CADENA_state_machine(void)
 				etat_cadena = CONNEXION;
 			}
 			//Si on détecte un badge NFC on déverouille le cadena
-			tag = ConfigManager_TagHunting(TRACK_ALL);
-
-			if(tag == TRACK_NFCTYPE4A)
+			if(ISO14443A_IsPresent() == RESULTOK)
 			{
-				etat_cadena = DEVERROUILLAGE;
+				printf("Il y a quelque chose \n");
+				tag = ConfigManager_TagHunting(tagToFind);
+				if(tag == TRACK_NFCTYPE4A)
+				{
+					etat_cadena = DEVERROUILLAGE;
+				}
+				tag = NULL;
 			}
 			break;
 
@@ -147,7 +153,7 @@ void CADENA_state_machine(void)
 				{
 					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
 					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
-					delay(1000);
+					HAL_Delay(1000);
 					t--;
 				}
 			}
@@ -185,7 +191,8 @@ char CADENA_recuperation_message(void)
 	while(UART_data_ready(UART2_ID))
 	{
 		//récupération des données de la liaison UART
-		info = info + UART_getc(UART2_ID);
+		info = info + UART_get_next_byte(UART2_ID);
+		printf(info);
 	}
 	char infoChar = info +"0";
 	return infoChar;

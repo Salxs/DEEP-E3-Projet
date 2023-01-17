@@ -42,12 +42,7 @@ int main(void)
 	//Cette ligne doit rester la première étape de la fonction main().
 	HAL_Init();
 
-
-	//Initialisation de l'UART2 à la vitesse de 115200 bauds/secondes (92kbits/s) PA2 : Tx  | PA3 : Rx.
-	//Attention, les pins PA2 et PA3 ne sont pas reliées jusqu'au connecteur de la Nucleo.
-	//Ces broches sont redirigées vers la sonde de débogage, la liaison UART étant ensuite encapsulée sur l'USB vers le PC de développement.
-
-
+	UART_init(UART3_ID, 9600);
 
 	//"Indique que les printf sortent vers le périphérique UART2."
 	SYS_set_std_usart(UART3_ID, UART3_ID, UART3_ID);
@@ -59,13 +54,10 @@ int main(void)
 	//On ajoute la fonction process_ms à la liste des fonctions appelées automatiquement chaque ms par la routine d'interruption du périphérique SYSTICK
 	Systick_add_callback_function(&process_ms);
 
-	//Initialisation du module Bluetooth
-	//HC05_Init();
-
 
 	while(1)	//boucle de tâche de fond
 	{
-
+		printf("Avant la machine à état");
 		//Fonction contenant la machine à état du système
 		CADENA_state_machine();
 	}
