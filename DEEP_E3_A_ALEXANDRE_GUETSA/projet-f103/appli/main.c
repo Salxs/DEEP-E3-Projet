@@ -47,7 +47,6 @@ int main(void)
 	//"Indique que les printf sortent vers le périphérique UART2."
 	SYS_set_std_usart(UART3_ID, UART3_ID, UART3_ID);
 
-
 	//Initialisation du port du bouton bleu (carte Nucleo)
 	BSP_GPIO_PinCfg(BLUE_BUTTON_GPIO, BLUE_BUTTON_PIN, GPIO_MODE_INPUT,GPIO_PULLUP,GPIO_SPEED_FREQ_HIGH);
 
@@ -57,7 +56,6 @@ int main(void)
 
 	while(1)	//boucle de tâche de fond
 	{
-		printf("Avant la machine à état");
 		//Fonction contenant la machine à état du système
 		CADENA_state_machine();
 	}

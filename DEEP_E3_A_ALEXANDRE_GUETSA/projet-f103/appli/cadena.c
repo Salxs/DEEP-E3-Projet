@@ -32,7 +32,7 @@ void CADENA_state_machine(void)
 	}state_e;
 
 	static state_e etat_cadena = INIT;
-	char message = CADENA_recuperation_message();
+	static char message;
 	uint8_t numero_badge_ancien = 1;
 	//uint8_t tag;
 	ISO14443A_CARD card;
@@ -62,7 +62,9 @@ void CADENA_state_machine(void)
 			break;
 
 		case WAIT_CONNEXION :
-			printf("Wait connexion \n");
+			printf("Wait connexion");
+			message = CADENA_recuperation_message();
+			printf("Voici le message %s", message);
 			//Si on détecte une connexion on passe dans l'état connexion
 			if(UART_data_ready(UART2_ID))
 			{
@@ -83,6 +85,7 @@ void CADENA_state_machine(void)
 
 		case CONNEXION :
 			printf("Connexion");
+			message = CADENA_recuperation_message();
 			//Si on reçoit le message "verrouille" on verouille le cadena
 			if(message == "verrouille")
 			{
@@ -186,17 +189,17 @@ void CADENA_state_machine(void)
 char CADENA_recuperation_message(void)
 {
 	//Définition de notre variable de récupération
-	int info = 0;
+	char info = 0;
 
 	//Tant que la liaison UART reçoit des informations on continue de les récupérer
 	while(UART_data_ready(UART2_ID))
 	{
 		//récupération des données de la liaison UART
-		info = info + UART_get_next_byte(UART2_ID);
+		info = info + UART_getc_blocking(UART2_ID, 1000);
 		printf(info);
+		HAL_Delay(500);
 	}
-	char infoChar = info +"0";
-	return infoChar;
+	return info;
 
 }
 
