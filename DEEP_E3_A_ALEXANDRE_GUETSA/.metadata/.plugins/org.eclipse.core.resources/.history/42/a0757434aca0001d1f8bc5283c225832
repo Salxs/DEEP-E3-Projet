@@ -73,10 +73,10 @@ void CADENA_state_machine(void)
 				etat_cadena = CONNEXION;
 			}
 			//Si on détecte un badge NFC on déverouille le cadena
-			card = CADENA_NFC();
-			if(card != NULL)
+
+			if(ConfigManager_TagHunting(tagToFind) == TRACK_NFCTYPE4A)
 			{
-				printf("Badge Détecté");
+				printf("Il y a quelque chose \n");
 				etat_cadena = DEVERROUILLAGE;
 			}
 
@@ -201,33 +201,5 @@ char CADENA_recuperation_message(void)
 	}
 	return info;
 
-}
-//Il s'agit de la même fonction que la fonction démo proposé dans le fichier nfc03a1.c
-//La fonction a été modifié pour être utiliser de manière plus efficace
-//Dans cette version nous renvoyons les informations contenu dans le badge vers le programme
-
-ISO14443A_CARD CADENA_NFC(void)
-{
-	uint8_t tag;
-	ISO14443A_CARD infos;
-		while(1)
-		{
-			tag = ConfigManager_TagHunting(TRACK_ALL);
-			switch(tag)
-			{
-				case TRACK_NFCTYPE4A:
-				{
-					NFC03A1_get_ISO14443A_infos(&infos);
-					uint8_t i;
-					printf("uid = ");
-					for(i=0; i<infos.UIDsize;i++)
-						printf("%02x ",infos.UID[i]);
-					printf("\n");
-					break;}
-				default:
-					break;
-			}
-		}
-		return infos;
 }
 
